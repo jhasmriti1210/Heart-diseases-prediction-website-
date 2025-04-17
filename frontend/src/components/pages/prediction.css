@@ -1,0 +1,254 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: rgb(24, 43, 134);
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+
+nav .logo {
+    font-size: 2rem;
+    margin-left: 4rem;
+}
+
+nav .nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+
+
+nav .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.6rem;
+    margin-right: 2.5rem;
+}
+
+/* App Section */
+.App {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.3rem;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Input Form - Glassy 3D Style */
+.input-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #828de2;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin-left: -10rem;
+
+}
+
+.input-form label {
+    font-size: 1.4rem;
+    color: black;
+}
+
+.input-form input,
+.input-form select {
+    padding: 8px;
+    margin-top: 5px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border: 1px solid #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.6);
+}
+
+button {
+    background-color: rgb(24, 43, 134);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #213964;
+}
+
+/* Results Section */
+.results {
+    background: #828de2;
+    margin-top: 60px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    /* Ensures the content is centered */
+    flex-direction: column;
+    align-items: center;
+
+    width: 160vh;
+    margin-left: -8rem;
+}
+
+.results h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    margin-top: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.results p {
+    font-size: 2rem;
+    color: red;
+
+}
+
+.results .chart {
+    margin: 20px 0;
+    width: 80%;
+    /* You can set this width to fit your layout */
+    max-width: 600px;
+    /* Adjust according to your preference */
+    display: flex;
+    /* Ensures the chart is a block-level element */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+/* Chart specific CSS if needed */
+.chart1,
+.chart2 {
+    width: 100%;
+    max-width: 500px;
+    /* Adjust for your chart's max width */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    /* Ensures the content is centered */
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+/* Dataset Description Section */
+.description-section {
+    position: absolute;
+    top: 8rem;
+    right: 20px;
+    background-color: rgb(24, 43, 134);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 550px;
+    height: 80vh;
+    overflow: none;
+    margin-bottom: 3rem;
+}
+
+.description-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: rgb(235, 235, 246);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.dataset-description ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dataset-description li {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: white;
+}
+
+.dataset-description li strong {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.dataset-image {
+    width: 100%;
+    max-width: 200px;
+    display: block;
+    margin: 20px auto 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .App {
+        padding: 10px;
+    }
+
+    .input-form {
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+    }
+
+    .description-section {
+        width: 250px;
+        top: 6rem;
+    }
+
+    .description-section h2 {
+        font-size: 1.1rem;
+    }
+
+    .dataset-description li {
+        font-size: 0.9rem;
+    }
+
+    .input-form button {
+        font-size: 1rem;
+    }
+}

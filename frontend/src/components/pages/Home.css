@@ -1,0 +1,427 @@
+:root {
+    --bg-color: #0d0d0d;
+    --text-color: #ffffff;
+    --accent-color: #fca311;
+    --button-bg: #fca311;
+    --button-text: #000;
+}
+
+body,
+html,
+.background-wrapper {
+    background-image: url('/heart.jpg');
+    /* Ensure the image path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    font-family: "Inter", sans-serif;
+    color: var(--text-color);
+
+}
+
+/* === Overlay for Dark Background Effect === */
+.overlay-content {
+    background-color: rgba(0, 0, 0, 0.3);
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* === Navbar Styling === */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.5);
+    /* optional semi-transparent background */
+    backdrop-filter: blur(10px);
+    /* optional frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* === Logo === */
+.logo {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--logo-color, #fff);
+    /* fallback color */
+    cursor: pointer;
+}
+
+/* === Navigation Links === */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li a {
+    position: relative;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.nav-links li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #fca311, #ffca3a);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+}
+
+.nav-links li a:hover {
+    color: #fca311;
+}
+
+.nav-links li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+
+/* === Button Styling === */
+.ask-now,
+.tag,
+.sign-in {
+    background-color: var(--button-bg, #f9a826);
+    color: var(--button-text, #000);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.ask-now:hover,
+.tag:hover,
+.sign-in:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0.95;
+}
+
+
+/* === Hero Section === */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 80vh;
+    padding: 60px 20px;
+
+}
+
+.hero-content-with-image {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero-text {
+    width: 100%;
+    max-width: 1100px;
+
+    margin-top: 13rem;
+}
+
+.hero-text h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.hero-text p {
+    font-size: 1.4rem;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+}
+
+/* === About Section === */
+.about-wrapper {
+    background-color: #f9f9f9;
+    padding: 100px 20px 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-title-floating {
+    position: absolute;
+    top: -30px;
+
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 6rem;
+    font-weight: bold;
+    color: #111;
+    font-family: 'Times New Roman', Times, serif;
+
+    z-index: 2;
+}
+
+.about-card {
+    margin-top: 10rem;
+    background: linear-gradient(270deg, #f0f09e, #e58282, #74bceb, #95f5aa);
+    background-size: 800% 800%;
+    animation: gradientMove 10s ease infinite;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.1),
+        0 20px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 120vh;
+    color: #2a2a2a;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.2),
+        0 25px 45px rgba(0, 0, 0, 0.25);
+}
+
+/* Keyframes for running gradient */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+
+
+.about-description {
+    font-size: 1.50rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.disclaimer {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+
+}
+
+.about-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.about-link:hover {
+    background-color: #e08e00;
+    /* slightly darker for hover */
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+
+/* === Responsive Styling === */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .about-card {
+        padding: 30px 20px;
+    }
+
+    .about-title-floating {
+        font-size: 1.4rem;
+        padding: 8px 20px;
+        top: -25px;
+    }
+
+    .about-description {
+        font-size: 1rem;
+    }
+}
+
+.footer-wrapper {
+    background: linear-gradient(135deg, #111, #1a1a1a);
+    color: #eaeaea;
+    padding: 60px 20px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    z-index: 2;
+    position: relative;
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color, #f9a826);
+    margin-bottom: 10px;
+}
+
+.footer-tagline {
+    font-size: 1.3rem;
+    color: white;
+    line-height: 1.6;
+}
+
+.footer-links {
+    flex: 1;
+    min-width: 200px;
+    margin-left: 20rem;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.footer-links a:hover {
+    color: #f9a826;
+    transform: translateX(4px);
+    text-shadow: 0 0 5px #f9a826;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.5rem;
+    color: #999;
+    border-top: 1px solid #2c2c2c;
+    padding-top: 20px;
+}
+
+.links {
+    color: #ccc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 4rem;
+}
+
+/* Optional dynamic moving background glow */
+.footer-wrapper::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(234, 173, 59, 0.1), transparent 60%);
+    animation: animateGlow 8s linear infinite;
+    z-index: 0;
+}
+
+@keyframes animateGlow {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
