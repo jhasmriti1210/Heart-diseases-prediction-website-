@@ -4,7 +4,9 @@ import pickle
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # Allow requests from React frontend
+
+# Allow requests from localhost:5174 (your frontend) explicitly
+CORS(app, origins="http://localhost:5174")  # You can add other domains here if needed
 
 # Load the scaler and model
 with open("scaler.pkl", "rb") as f:
@@ -13,12 +15,15 @@ with open("scaler.pkl", "rb") as f:
 with open("knn_model.pkl", "rb") as f:
     model = pickle.load(f)
 
+@app.route("/")
+def home():
+    return "Welcome to the Heart Disease Prediction API"
+
 @app.route("/predict", methods=["POST"])
 def predict():
     try:
         data = request.get_json()
 
-        # Extract feature values in correct order
         features = [
             data["age"], data["sex"], data["cp"], data["trestbps"],
             data["chol"], data["fbs"], data["restecg"], data["thalach"],
@@ -26,20 +31,15 @@ def predict():
             data["thal"]
         ]
 
-        features_np = np.array([features])  # Shape (1, 13)
+        features_np = np.array([features])
         features_scaled = scaler.transform(features_np)
 
-        # Get distances and indices of k nearest neighbors
         distances, indices = model.kneighbors(features_scaled)
+        neighbor_labels = model._y[indices[0]]
 
-        # Get labels of the k nearest neighbors
-        neighbor_labels = model._y[indices[0]]  # Use model._y to access training labels
-
-        # Count votes
         vote_counts = np.bincount(neighbor_labels)
         total_votes = np.sum(vote_counts)
 
-        # Final prediction and confidence
         prediction = int(np.argmax(vote_counts))
         confidence = round((vote_counts[prediction] / total_votes) * 100, 2) if total_votes > 0 else 0
 
